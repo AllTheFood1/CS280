@@ -1,0 +1,3 @@
+Aladdin,5,1992
+The Hunchback of Notre Dame,3,1996
+Pocahontas,4,1995

@@ -1,0 +1,24 @@
+FIND_MIN(L):
+    INT CURRENT_MIN = L.HEAD.VALUE
+    VAR CURRENT_NODE = L.HEAD
+    WHILE(CURRENT_NODE != L.TAIL):
+        IF CURRENT_NODE.NEXT.VALUE < CURRENT_MIN:
+            CURRENT_MIN = CURRENT_NODE.NEXT.VALUE
+        CURRENT_NODE = CURRENT_NODE.NEXT
+
+    RETURN CURRENT_MIN
+
+
+INPUT: Linked List with at least 2 integers and a target integer
+OUTPUT: Boolean, true if such a condition exists, false otherwise
+
+CHECK_SUM(L, I):
+    TEMP1 = L.HEAD
+    WHILE(TEMP1 != NULL):
+        TEMP2 = L.HEAD
+        WHILE(TEMP2 != NULL):
+            IF (TEMP1.VALUE + TEMP2.VALUE) == I && TEMP1 != TEMP2:
+                RETURN TRUE
+            TEMP2 = TEMP2.NEXT
+        TEMP1 = TEMP1.NEXT
+    RETURN FALSE

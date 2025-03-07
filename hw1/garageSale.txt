@@ -1,0 +1,17 @@
+bike,for sale,100
+bike,for sale,50
+bike,wanted,60
+microwave,wanted,40
+bike,for sale,200
+microwave,for sale,50
+dresser,for sale,500
+chicken,for sale,10
+chicken,for sale,15
+dresser,wanted,200
+dresser,wanted,600
+chicken,wanted,20
+truck,for sale,10000
+truck,wanted,15000
+truck,wanted,5000
+microwave,wanted,10
+bike,for sale,300

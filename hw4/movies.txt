@@ -1,4 +1,5 @@
 Aladdin,5,1992
 The Hunchback of Notre Dame,3,1996
 Pocahontas,4,1995
-fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffuck,0,2025
+This is the worst movie ever made because I said that it is the worst movie ever made,0,2025
+star wars,5,1978

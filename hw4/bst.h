@@ -165,7 +165,7 @@ void bst::addMovie(string title, int rating, int year)
 */
 movie* bst::findMin(movie* node)
 {
-	cout << node->rightChild << endl;
+	// cout << node->rightChild->leftChild->title << endl;
 	movie* currentNode = node->rightChild;
 	movie* min;
 	while(currentNode != NULL)
@@ -173,7 +173,7 @@ movie* bst::findMin(movie* node)
 		min = currentNode;
 		currentNode = currentNode->leftChild;
 	}
-	cout << "This is the min " + min->title;
+	// cout << "This is the min " + min->title;
 	return min;
 }
 
@@ -194,7 +194,7 @@ void bst::deleteMovie(string title)
 	// cout << toDelete->leftChild->title << endl;
 	if(toDelete->leftChild == NULL && toDelete->rightChild == NULL)
 	{
-		cout << "first" << endl;
+		// cout << "first" << endl;
 		if(toDelete->parent == NULL)
 		{
 			root = NULL;
@@ -205,7 +205,7 @@ void bst::deleteMovie(string title)
 		{
 			toDelete->parent->rightChild = NULL;
 		}
-		cout << "second" << endl;
+		// cout << "second" << endl;
 		delete toDelete;
 		return; 
 	}else if(toDelete->leftChild != NULL && toDelete->rightChild == NULL)
@@ -225,7 +225,7 @@ void bst::deleteMovie(string title)
 		return;
 	}else if(toDelete->rightChild != NULL && toDelete->leftChild == NULL)
 	{
-		cout << "Third" << endl;
+		// cout << "Third" << endl;
 		if(toDelete->parent == NULL)
 		{
 			root = toDelete->rightChild;
@@ -262,12 +262,12 @@ void bst::deleteMovie(string title)
 		}else if(toDelete == toDelete->parent->rightChild)
 		{
 			// tmp = findMin(toDelete);
-			cout << toDelete->parent->title << endl;
-			cout << tmp->title << endl;
+			// cout << toDelete->parent->title << endl;
+			// cout << tmp->title << endl;
 			tmp->parent = toDelete->parent;
 			toDelete->parent->rightChild = tmp;
 		}
-		tmp->rightChild = toDelete->rightChild;
+		// tmp->rightChild = toDelete->rightChild;
 		tmp->leftChild = toDelete->leftChild;
 		delete toDelete;
 		return;

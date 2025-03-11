@@ -1,0 +1,15 @@
+/home/allthefood/documents/code/CS280/hw5/obj/Debug/net8.0/hw5.GeneratedMSBuildEditorConfig.editorconfig
+/home/allthefood/documents/code/CS280/hw5/obj/Debug/net8.0/hw5.AssemblyInfoInputs.cache
+/home/allthefood/documents/code/CS280/hw5/obj/Debug/net8.0/hw5.AssemblyInfo.cs
+/home/allthefood/documents/code/CS280/hw5/obj/Debug/net8.0/hw5.csproj.CoreCompileInputs.cache
+/home/allthefood/documents/code/CS280/hw5/obj/Debug/net8.0/hw5.sourcelink.json
+/home/allthefood/documents/code/CS280/hw5/bin/Debug/net8.0/hw5
+/home/allthefood/documents/code/CS280/hw5/bin/Debug/net8.0/hw5.deps.json
+/home/allthefood/documents/code/CS280/hw5/bin/Debug/net8.0/hw5.runtimeconfig.json
+/home/allthefood/documents/code/CS280/hw5/bin/Debug/net8.0/hw5.dll
+/home/allthefood/documents/code/CS280/hw5/bin/Debug/net8.0/hw5.pdb
+/home/allthefood/documents/code/CS280/hw5/obj/Debug/net8.0/hw5.dll
+/home/allthefood/documents/code/CS280/hw5/obj/Debug/net8.0/refint/hw5.dll
+/home/allthefood/documents/code/CS280/hw5/obj/Debug/net8.0/hw5.pdb
+/home/allthefood/documents/code/CS280/hw5/obj/Debug/net8.0/hw5.genruntimeconfig.cache
+/home/allthefood/documents/code/CS280/hw5/obj/Debug/net8.0/ref/hw5.dll

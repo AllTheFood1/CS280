@@ -1,0 +1,112 @@
+TrieNode:
+    character data
+    TrieNode children[26] // there are a maximum of 26 children per node as that is the maximum number of letters in the alphabet
+    TrieNode parent
+    boolean isLeaf
+
+
+// makes a new node in the trie and RETURNs it but does not insert it
+TrieNode MakeTrieNode(character data, TrieNode parent):
+    TrieNode node = new TrieNode
+    for integer i=0 to node.children.length:
+        node.children[i] = NULL
+    node.data = data
+    node.isLeaf = false
+    node.parent = parent
+    RETURN node
+
+// inserts a new word into the trie
+// this function assumes that everything is lowercase and does not contain special characters
+TrieNode InsertTrie(TrieNode root,  string word):
+    TrieNode temp = root
+    for character c in word:
+        integer alphabetIndex = c.getAlphabetIndex() // a function that RETURNs the characters position in the alphabet
+        if temp.children[alphabetIndex] == NULL:
+            temp.children[alphabetIndex] = makeTrieNode(c, temp)
+        temp = temp.children[c]
+    temp.isLeaf = true;
+    RETURN temp 
+
+// RETURNs a TrieNode of the leaf containing the final character of the word, this can then be backtraced using the parent/
+TrieNode SearchTrie(TrieNode root, string word):
+    TrieNode temp = root
+    for character c in word:
+        integer alphabetIndex = c.getAlphabetIndex()
+        if temp.children[alphabetIndex] == NULL:
+            RETURN NULL
+        temp = temp.children[alphabetIndex]
+    if temp != NULL AND temp.isLeaf == true:
+        RETURN temp
+
+NO_RETURN PrintTrie(TrieNode root):
+    if root == NULL:
+        RETURN
+    TrieNode temp = root
+    print(temp.data)
+    for integer i=0 to 26:
+        PrintTrie(temp.children[i])
+
+boolean IsLeafNode(TrieNode root, string word)
+    TrieNode temp = root;
+    for character c in word:
+        integer alphabetIndex = c.getAlphabetIndex
+        if temp.children[alphabetIndex] != NULL:
+            temp = temp.children[alphabetPosition]
+    RETURN temp.isLeaf
+
+integer CheckDivergence(TrieNode root, string word):
+    TrieNode temp = root
+    integer wordLength = word.length
+    if(length == 0):
+        RETURN 0
+    integer lastIndex = 0
+    for character c in word:
+        integer alphabetIndex = c.getAlphabetIndex
+        if temp.children[position] != NULL:
+            for integer i=0 to 26:
+                if j != alphabetIndex && temp.children[i] != NULL:
+                    lastIndex = i + 1
+                    break
+        temp = temp.children[position]
+    RETURN lastIndex
+
+string FindLongestPrefix(TrieNode root, string word):
+    if word == NULL OR word[0] == NULL:
+        RETURN NULL
+    integer length = word.length
+    string  longestPrefix = word
+
+    integer branchIndex = CheckDivergence(root, longestPrefix)
+    if branchIndex = 0:
+        longestPrefix[branchIndex] = emptyString
+    
+    RETURN longestPrefix
+
+TrieNode DeleteTrie(TrieNode root, string word):
+    if root == NULL:
+        RETURN NULL
+    if word == NULL OR word[0] == NULL:
+        RETURN root
+    if is_leaf_node(root, word) == NULL:
+        RETURN root
+    TrieNode temp = root
+    string longestPrefix = FindLongestPrefix(root, word)
+    if longestPrefix[0] == NULL:
+        RETURN root
+    integer deepestCommonNode
+    for character c in longestPrefix:
+        int alphabetIndex = c.getAlphabetIndex()
+        if temp.children[alphabetIndex] != NULL:
+            temp = temp.children[alphabetIndex]
+        else:
+            RETURN root
+        deepestCommonNode++
+    
+    integer wordLength = word.length
+    for integer i = deepestCommonNode to wordLength:
+        integer alphabetIndex = word[i].getAlphabetIndex()
+        if(temp.children[alphabetIndex]):
+            TrieNode toBeRemoved = temp.children[alphabetIndex]
+            temp.children[alphabetIndex] = NULL
+    
+    RETURN root

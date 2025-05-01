@@ -1,3 +1,4 @@
+// Struct storing the relavent data for each node in the trie
 TrieNode:
     character data
     TrieNode children[26] // there are a maximum of 26 children per node as that is the maximum number of letters in the alphabet
@@ -38,6 +39,7 @@ TrieNode SearchTrie(TrieNode root, string word):
     if temp != NULL AND temp.isLeaf == true:
         RETURN temp
 
+// Walks through the entire trie layer by layer to print out all characters in the trie
 NO_RETURN PrintTrie(TrieNode root):
     if root == NULL:
         RETURN
@@ -46,6 +48,7 @@ NO_RETURN PrintTrie(TrieNode root):
     for integer i=0 to 26:
         PrintTrie(temp.children[i])
 
+//Searches through a specific section of the trie, depending on the root, and returns the is leaf value for the TrieNode that was found
 boolean IsLeafNode(TrieNode root, string word)
     TrieNode temp = root;
     for character c in word:
@@ -54,6 +57,9 @@ boolean IsLeafNode(TrieNode root, string word)
             temp = temp.children[alphabetPosition]
     RETURN temp.isLeaf
 
+// This function is used to fix the problem in the find longest prefix function which is that it will greedily select the word that we are trying to delete,
+// which is not what we want, so this function will return the longest match from the current position in the trie to the root that contains branching which
+// indicates that it is a shared prefix that shouldn't be deleted when considering a single word.
 integer CheckDivergence(TrieNode root, string word):
     TrieNode temp = root
     integer wordLength = word.length
@@ -70,6 +76,8 @@ integer CheckDivergence(TrieNode root, string word):
         temp = temp.children[position]
     RETURN lastIndex
 
+// The purpose of this functon is to find the longest prefix in the path of the tree that the word we want to delete is contained in so that we know where to begin
+// the deletion to delete the correct word without disturbing the other data stored in the trie
 string FindLongestPrefix(TrieNode root, string word):
     if word == NULL OR word[0] == NULL:
         RETURN NULL
@@ -83,16 +91,21 @@ string FindLongestPrefix(TrieNode root, string word):
     RETURN longestPrefix
 
 TrieNode DeleteTrie(TrieNode root, string word):
+    // Covers various errors, such as a null root or a root with no part of the trie below it
     if root == NULL:
         RETURN NULL
     if word == NULL OR word[0] == NULL:
         RETURN root
     if is_leaf_node(root, word) == NULL:
         RETURN root
+
+    // Finds the longest prefix that is not the current word
     TrieNode temp = root
     string longestPrefix = FindLongestPrefix(root, word)
     if longestPrefix[0] == NULL:
         RETURN root
+
+    keeps track of the position in the trie
     integer deepestCommonNode
     for character c in longestPrefix:
         int alphabetIndex = c.getAlphabetIndex()
@@ -102,6 +115,7 @@ TrieNode DeleteTrie(TrieNode root, string word):
             RETURN root
         deepestCommonNode++
     
+    // At thsi point we have reached the deepest common node and need to delete all following nodes corresponding to our word in the trie
     integer wordLength = word.length
     for integer i = deepestCommonNode to wordLength:
         integer alphabetIndex = word[i].getAlphabetIndex()
